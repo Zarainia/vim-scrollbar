@@ -5,7 +5,7 @@ License: GNU General Public License
 
 Shows a scrollbar on the left side in terminal Vim to display the location in the buffer. 
 
-INTRODUCTION                                    *vim-scrollbar*
+INTRODUCTION                                                          *vim-scrollbar*
 
 Shows a scrollbar indicating the location in the buffer (as well as how large
 the screen is compared to the buffer). The scrollbar can also be dragged to move
@@ -13,13 +13,13 @@ around in the file.
 
 -----------------------------------------------------------------------------------------
 
-COMMANDS									*scrollbar-commands*
+COMMANDS                                                              *scrollbar-commands*
 
 `ToggleScrollbar` toggles the scrollbar display
 `ScrollbarOn` turns it on
 `ScrollbarOff` turns it off
 
-SETTINGS                                     *scrollbar-settings*
+SETTINGS                                                               *scrollbar-settings*
 
 The following options can be set:
 
@@ -36,6 +36,6 @@ The following options can be set:
 `g:scroll_bar_draggable` sets whether the scrollbar is draggable (Default: 1)
 `g:scroll_bar_autostart` sets whether the scrollbar is enabled on startup
 
-ABOUT                                           *scrollbar-about*
+ABOUT                                                                  *scrollbar-about*
 
 See `github.com/zarainia/vim-scrollbar` for the latest version.
