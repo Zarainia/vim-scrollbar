@@ -61,20 +61,28 @@ fun! ScrollbarGrab() " function called when scrollbar dragged
 	endwhile
 endfun
 
+function ScrollbarOn()
+	call timer_stop(g:scroll_timer)
+	call RemoveScrollbar()
+	nunmap <LeftMouse>
+	iunmap <LeftMouse>
+	let g:scroll_bar_showing = 0
+endfunction
+
+function ScrollbarOff()
+	let g:scroll_timer = timer_start(g:scroll_bar_update_time, "ScrollUpdate", {'repeat': -1})
+	if g:scroll_bar_draggable
+		nnoremap <silent> <leftmouse> <leftmouse>:call ScrollbarGrab()<cr>
+		inoremap <silent> <leftmouse> <leftmouse><c-o>:call ScrollbarGrab()<cr>
+	endif
+	let g:scroll_bar_showing = 1
+endfunction
+
 function ToggleScrollbar() " toggle scrollbar display
 	if g:scroll_bar_showing
-		call timer_stop(g:scroll_timer)
-		call RemoveScrollbar()
-		nunmap <LeftMouse>
-		iunmap <LeftMouse>
-		let g:scroll_bar_showing = 0
+		call ScrollbarOn()
 	else
-		let g:scroll_timer = timer_start(g:scroll_bar_update_time, "ScrollUpdate", {'repeat': -1})
-		if g:scroll_bar_draggable
-			nnoremap <silent> <leftmouse> <leftmouse>:call ScrollbarGrab()<cr>
-			inoremap <silent> <leftmouse> <leftmouse><c-o>:call ScrollbarGrab()<cr>
-		endif
-		let g:scroll_bar_showing = 1
+		call ScrollbarOff()
 	endif
 endfunction
 
@@ -100,8 +108,10 @@ if ! hlexists('Scrollbar_Line')
 endif
 
 command ToggleScrollbar call ToggleScrollbar() " add the command
+command ScrollbarOn call ScrollbarOn()
+command ScrollbarOff call ScrollbarOff()
 
 if g:scroll_bar_autostart
-	ToggleScrollbar
+	ScrollbarOn
 endif
 

@@ -1,0 +1,41 @@
+*vim-scrollbar.txt* Plugin to create a curses scrollbar
+
+Author: Zarainia 
+License: GNU General Public License 
+
+Shows a scrollbar on the left side in terminal Vim to display the location in the buffer. 
+
+INTRODUCTION                                    *vim-scrollbar*
+
+Shows a scrollbar indicating the location in the buffer (as well as how large
+the screen is compared to the buffer). The scrollbar can also be dragged to move
+around in the file. 
+
+-----------------------------------------------------------------------------------------
+
+COMMANDS									*scrollbar-commands*
+
+`ToggleScrollbar` toggles the scrollbar display
+`ScrollbarOn` turns it on
+`ScrollbarOff` turns it off
+
+SETTINGS                                     *scrollbar-settings*
+
+The following options can be set:
+
+`g:scroll_bar_update_time` sets the time between position updates (in ms).
+(Default: 100)
+
+`g:scroll_bar_thumb_char` sets the character used for the scrollbar thumb.
+(default: #)
+`g:scroll_bar_line_char`sets the character used for the scrollbar line
+(non-scrollable area). (Default: |)
+`hi Scrollbar_Thumb` sets the scrollbar thumb highlighting. (Default: red)
+`hi Scrollbar_Line` sets the scrollbar line highlighting. (Default: red)
+
+`g:scroll_bar_draggable` sets whether the scrollbar is draggable (Default: 1)
+`g:scroll_bar_autostart` sets whether the scrollbar is enabled on startup
+
+ABOUT                                           *scrollbar-about*
+
+See `github.com/zarainia/vim-scrollbar` for the latest version.
