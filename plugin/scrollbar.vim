@@ -61,7 +61,7 @@ fun! ScrollbarGrab() " function called when scrollbar dragged
 	endwhile
 endfun
 
-function ScrollbarOn()
+function ScrollbarOff()
 	call timer_stop(g:scroll_timer)
 	call RemoveScrollbar()
 	nunmap <LeftMouse>
@@ -69,7 +69,7 @@ function ScrollbarOn()
 	let g:scroll_bar_showing = 0
 endfunction
 
-function ScrollbarOff()
+function ScrollbarOn()
 	let g:scroll_timer = timer_start(g:scroll_bar_update_time, "ScrollUpdate", {'repeat': -1})
 	if g:scroll_bar_draggable
 		nnoremap <silent> <leftmouse> <leftmouse>:call ScrollbarGrab()<cr>
